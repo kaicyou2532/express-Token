@@ -1,47 +1,28 @@
-<!-- views/index.ejs -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles.css">
-  <title>User Information Update</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー検索と情報登録</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Update User Information</h1>
-    <form id="updateForm">
-      <input type="text" id="username" name="username" placeholder="Username" required>
-      <textarea id="additional_info" name="additional_info" placeholder="Additional Information" required></textarea>
-      <button type="submit">Update</button>
-    </form>
-    <div id="message"></div>
-  </div>
-  <script>
-    document.getElementById('updateForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const additional_info = document.getElementById('additional_info').value;
-      
-      try {
-        const response = await fetch('/api/users/update', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ username, additional_info })
-        });
-        
-        const message = await response.text();
-        document.getElementById('message').innerText = message;
-        
-        if (response.status === 200) {
-          document.getElementById('updateForm').reset();
-        }
-      } catch (err) {
-        document.getElementById('message').innerText = 'Error updating user information';
-      }
-    });
-  </script>
+    <div class="container">
+        <h1>ユーザー検索と情報登録</h1>
+        <div id="search-form">
+            <label for="username">ユーザー名で検索:</label>
+            <input type="text" id="username" placeholder="ユーザー名を入力">
+            <button onclick="searchUser()">検索</button>
+        </div>
+        <div id="user-info" style="display: none;">
+            <h2>ユーザー情報</h2>
+            <p id="user-data"></p>
+            <label for="additional-info">追加情報:</label>
+            <input type="text" id="additional-info" placeholder="追加情報を入力">
+            <button onclick="addInfo()">情報を追加</button>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
 </body>
 </html>

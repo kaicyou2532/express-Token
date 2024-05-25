@@ -2,10 +2,11 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: '192.168.3.31:3306',
+  host: '192.168.3.31',
   user: 'minecraft',
   password: '0000',
-  database: 'Minecraft_Mysqlinventory'
+  database: 'Minecraft_Mysqlinventory',
+  port: 3306 
 });
 
 connection.connect((err) => {
