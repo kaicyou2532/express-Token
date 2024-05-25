@@ -6,7 +6,7 @@ function searchUser() {
             if (data.error) {
                 alert(data.error);
             } else {
-                document.getElementById('user-data').textContent = `ユーザー名: ${data.username}`;
+                document.getElementById('user-data').textContent = `ユーザー名: ${data.player_name}`;
                 document.getElementById('user-info').style.display = 'block';
             }
         })
@@ -15,22 +15,25 @@ function searchUser() {
 
 function addInfo() {
     const username = document.getElementById('username').value;
-    const additionalInfo = document.getElementById('additional-info').value;
+    const password = document.getElementById('password').value;
+    const webUsername = document.getElementById('web-username').value;
     fetch(`/api/users/${username}/add-info`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ additionalInfo })
+        body: JSON.stringify({ password, webUsername })
     })
     .then(response => response.json())
     .then(data => {
         if (data.error) {
             alert(data.error);
         } else {
-            alert('情報が追加されました');
-            document.getElementById('additional-info').value = '';
+            alert(`情報が追加されました。JWTトークン: ${data.token}`);
+            document.getElementById('password').value = '';
+            document.getElementById('web-username').value = '';
         }
     })
     .catch(error => console.error('Error:', error));
 }
+
