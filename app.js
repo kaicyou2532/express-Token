@@ -5,10 +5,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const app = express();
-const port = 3006;
+const port = 3006; // ポート番号を3006に変更
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // publicディレクトリを静的ファイルとして提供
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -17,17 +18,17 @@ const JWT_SECRET = 'your_secret_key';
 // MariaDBの接続設定
 const mainDBConnection = mysql.createConnection({
     host: '192.168.3.31',
-    user: 'AP',
-    password: '0000',
-    database: 'Minecraft_Mysqlinventory',
+    user: 'Minecraft',
+    password: 'AP',
+    database: '0000',
     port: 3306
 });
 
 const additionalDBConnection = mysql.createConnection({
     host: '192.168.3.31',
-    user: 'AP',
-    password: '0000',
-    database: 'UserAdditionalData',
+    user: 'Minecraft',
+    password: 'AP',
+    database: '0000',
     port: 3306
 });
 
