@@ -1,9 +1,19 @@
 // models/user.js
 const db = require('../db/connection');
 
-const createUser = (username, password, email, callback) => {
-  const query = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
-  db.execute(query, [username, password, email], (err, results) => {
+const findUserByUsername = (username, callback) => {
+  const query = 'SELECT * FROM users WHERE username = ?';
+  db.execute(query, [username], (err, results) => {
+    if (err) {
+      return callback(err);
+    }
+    callback(null, results[0]);
+  });
+};
+
+const updateUser = (username, additionalInfo, callback) => {
+  const query = 'UPDATE users SET additional_info = ? WHERE username = ?';
+  db.execute(query, [additionalInfo, username], (err, results) => {
     if (err) {
       return callback(err);
     }
@@ -11,4 +21,5 @@ const createUser = (username, password, email, callback) => {
   });
 };
 
-module.exports = { createUser };
+module.exports = { findUserByUsername, updateUser };
+

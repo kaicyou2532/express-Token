@@ -1,0 +1,47 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>User Information Update</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Update User Information</h1>
+    <form id="updateForm">
+      <input type="text" id="username" name="username" placeholder="Username" required>
+      <textarea id="additional_info" name="additional_info" placeholder="Additional Information" required></textarea>
+      <button type="submit">Update</button>
+    </form>
+    <div id="message"></div>
+  </div>
+  <script>
+    document.getElementById('updateForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const additional_info = document.getElementById('additional_info').value;
+      
+      try {
+        const response = await fetch('/api/users/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, additional_info })
+        });
+        
+        const message = await response.text();
+        document.getElementById('message').innerText = message;
+        
+        if (response.status === 200) {
+          document.getElementById('updateForm').reset();
+        }
+      } catch (err) {
+        document.getElementById('message').innerText = 'Error updating user information';
+      }
+    });
+  </script>
+</body>
+</html>
