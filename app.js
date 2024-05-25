@@ -17,18 +17,18 @@ const JWT_SECRET = 'your_secret_key';
 
 // MariaDBの接続設定
 const mainDBConnection = mysql.createConnection({
-    host: '192.168.3.31',
-    user: 'Minecraft',
-    password: 'AP',
-    database: '0000',
+    host: '192.168.3.31',  // データベースサーバーのホスト名
+    user: 'AP',     // データベースのユーザー名
+    password: '0000', // ユーザーのパスワード
+    database: 'Minecraft_Mysqlinventory',
     port: 3306
 });
 
 const additionalDBConnection = mysql.createConnection({
-    host: '192.168.3.31',
-    user: 'Minecraft',
-    password: 'AP',
-    database: '0000',
+    host: '192.168.3.31',  // データベースサーバーのホスト名
+    user: 'AP',     // データベースのユーザー名
+    password: '0000', // ユーザーのパスワード
+    database: 'UserAdditionalData',
     port: 3306
 });
 
@@ -90,6 +90,22 @@ app.post('/api/users/:username/add-info', async (req, res) => {
         console.error('Error hashing password or generating token:', err);
         res.status(500).json({ error: 'Server error' });
     }
+});
+
+// トークン再発行エンドポイント
+app.get('/api/users/:username/recover-token', (req, res) => {
+    const { username } = req.params;
+    const query = 'SELECT token FROM user_data WHERE username = ?';
+    additionalDBConnection.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('Error fetching token:', err);
+            res.status(500).json({ error: 'Database error' });
+        } else if (results.length === 0) {
+            res.status(404).json({ error: 'User not found' });
+        } else {
+            res.json({ token: results[0].token });
+        }
+    });
 });
 
 app.listen(port, () => {

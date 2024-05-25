@@ -37,3 +37,18 @@ function addInfo() {
     .catch(error => console.error('Error:', error));
 }
 
+function recoverToken() {
+    const username = document.getElementById('recovery-username').value;
+    fetch(`/api/users/${username}/recover-token`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                document.getElementById('token-data').textContent = `JWTトークン: ${data.token}`;
+                document.getElementById('recovered-token').style.display = 'block';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+

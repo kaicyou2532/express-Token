@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー検索と情報登録</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- 正しいパスに設定 -->
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
@@ -22,6 +22,16 @@
             <label for="web-username">Web上でのユーザー名:</label>
             <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
             <button onclick="addInfo()">情報を追加</button>
+        </div>
+        <div id="token-recovery-form">
+            <h2>トークンを忘れた場合</h2>
+            <label for="recovery-username">ユーザー名でトークンを再発行:</label>
+            <input type="text" id="recovery-username" placeholder="ユーザー名を入力">
+            <button onclick="recoverToken()">再発行</button>
+        </div>
+        <div id="recovered-token" style="display: none;">
+            <h2>再発行されたトークン</h2>
+            <p id="token-data"></p>
         </div>
     </div>
 
