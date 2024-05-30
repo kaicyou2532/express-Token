@@ -5,6 +5,13 @@ body {
     padding: 0;
 }
 
+.header {
+    background-color: #005900;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
 .container {
     max-width: 480px;
     margin: 50px auto;
@@ -14,8 +21,8 @@ body {
     border-radius: 8px;
 }
 
-h1 {
-    font-size: 24px;
+h2, h3 {
+    font-size: 20px;
     margin-bottom: 20px;
 }
 
@@ -40,8 +47,19 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #004400;
+}
+
+.footer {
+    background-color: #005900;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }

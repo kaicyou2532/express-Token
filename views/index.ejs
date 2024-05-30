@@ -8,33 +8,37 @@
 </head>
 <body>
     <div class="container">
-        <h1>ユーザー検索と情報登録</h1>
-        <div id="search-form">
-            <label for="username">ユーザー名で検索:</label>
-            <input type="text" id="username" placeholder="ユーザー名を入力">
-            <button onclick="searchUser()">検索</button>
-        </div>
-        <div id="user-info" style="display: none;">
-            <h2>ユーザー情報</h2>
-            <p id="user-data"></p>
-            <label for="password">パスワード:</label>
-            <input type="password" id="password" placeholder="パスワードを入力">
-            <label for="web-username">Web上でのユーザー名:</label>
-            <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
-            <button onclick="addInfo()">情報を追加</button>
-        </div>
-        <div id="token-recovery-form">
-            <h2>トークンを忘れた場合</h2>
-            <label for="recovery-username">ユーザー名でトークンを再発行:</label>
-            <input type="text" id="recovery-username" placeholder="ユーザー名を入力">
-            <button onclick="recoverToken()">再発行</button>
-        </div>
-        <div id="recovered-token" style="display: none;">
-            <h2>再発行されたトークン</h2>
-            <p id="token-data"></p>
+        <h1>ユーザー認証サイト</h1>
+        <div class="login-section">
+            <h2>ユーザー検索と情報登録</h2>
+            <div id="search-form">
+                <label for="username">Minecraftのユーザー名で検索:</label>
+                <input type="text" id="username" placeholder="Minecraftのユーザー名を入力">
+                <button class="search-button" onclick="searchUser()">検索</button>
+            </div>
+            <div id="user-info" style="display: none;">
+                <h3>ユーザー情報</h3>
+                <p id="user-data"></p>
+                <label for="password">パスワードを設定:</label>
+                <input type="password" id="password" placeholder="パスワードを入力">
+                <label for="web-username">Web上でのユーザー名:</label>
+                <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
+                <button class="info-button" onclick="addInfo()">情報を追加</button>
+            </div>
+            <div id="token-recovery-form">
+                <h3>トークンを忘れた場合</h3>
+                <label for="recovery-username">ユーザー名でトークンを再発行:</label>
+                <input type="text" id="recovery-username" placeholder="ユーザー名を入力">
+                <button class="recovery-button" onclick="recoverToken()">再発行</button>
+            </div>
+            <div id="recovered-token" style="display: none;">
+                <h3>再発行されたトークン</h3>
+                <p id="token-data"></p>
+                <button class="copy-button" onclick="copyToken()">トークンをコピー</button>
+            </div>
+            <button class="minecraft-button" onclick="minecraftAuth()">マインクラフト内でトークンの認証ができたら<br>こちらをクリック</button>
         </div>
     </div>
-
     <script src="/script.js"></script>
 </body>
 </html>
