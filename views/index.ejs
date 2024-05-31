@@ -24,6 +24,7 @@
                 <label for="web-username">Web上でのユーザー名:</label>
                 <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
                 <button class="info-button" onclick="addInfo()">情報を追加</button>
+                <button class="minecraft-button" onclick="minecraftAuth()">マインクラフト内でトークンの認証ができたら<br>こちらをクリック</button>
             </div>
             <div id="token-recovery-form">
                 <h3>トークンを忘れた場合</h3>
@@ -36,7 +37,6 @@
                 <p id="token-data"></p>
                 <button class="copy-button" onclick="copyToken()">トークンをコピー</button>
             </div>
-            <button class="minecraft-button" onclick="minecraftAuth()">マインクラフト内でトークンの認証ができたら<br>こちらをクリック</button>
         </div>
     </div>
     <script src="/script.js"></script>
