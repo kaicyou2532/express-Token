@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.8); /* 白で透過 */
+    color: #000;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-header {
+    background-color: rgba(255, 255, 255, 0.8); /* 白で透過 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-logo a {
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    color: #000;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.header-nav a.active,
+.header-nav a:hover {
+    background-color: #f0f0f0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-actions a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+main {
+    padding: 20px;
+}
+
+main h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+main ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+main ul li {
+    margin-bottom: 5px;
+}
+
+main section {
+    margin-top: 20px;
+}
+
+main section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+main section p {
+    font-size: 16px;
+    line-height: 1.5;
+}

@@ -108,3 +108,8 @@ app.get('/api/users/:username/recover-token', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
+
+
+app.get('/explain', (req, res) => {
+    res.render('explain'); // ここで 'new-page.ejs' を表示します
+});

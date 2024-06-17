@@ -7,27 +7,63 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>ユーザー認証サイト</h1>
-        <div class="login-section">
-            <h2>ユーザー検索と情報登録</h2>
-            <div id="search-form">
-                <label for="username">Minecraftのユーザー名で検索:</label>
-                <input type="text" id="username" placeholder="Minecraftのユーザー名を入力">
-                <button class="search-button" onclick="searchUser()">検索</button>
-            </div>
-            <div id="user-info" style="display: none;">
-                <h3>ユーザー情報</h3>
-                <p id="user-data"></p>
-                <label for="password">パスワードを設定:</label>
-                <input type="password" id="password" placeholder="パスワードを入力">
-                <label for="web-username">Web上でのユーザー名:</label>
-                <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
-                <button class="info-button" onclick="addInfo()">情報を追加</button>
-                <button class="minecraft-button" onclick="minecraftAuth()">マインクラフト内でトークンの認証ができたら<br>こちらをクリック</button>
-            </div>
+    <header class="custom-header">
+        <div class="header-logo">
+            <a href="#">OptimusInteractive
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="#">ホーム</a>
+            <a href="/explain">サービス一覧</a>
+            <a href="/explain">Minecraft経済システム</a>
+            <a href="#" class="active">ユーザー登録</a>
+            <a href="#">マイページログイン</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#">メニュー</a>
+        </div>
+    </header>
+    <div class="container">  
+        <!-- <div class="content-container-notification"> -->
+            <!-- <div id="token-recovery-form"> -->
+                <!-- <p>障害情報</p> -->
+            <!-- </div> -->
+        <!-- </div> -->
+
+        <div class="content-container">
             <div id="token-recovery-form">
-                <h3>トークンを忘れた場合</h3>
+                <h3>登録方法</h3>
+                <p>1. MCID（マインクラフトのユーザー名）を検索</p>
+                <p>2. 追加情報を入力 (WEB上での名前や、パスワードなどの設定)し、<br>トークンを発行する。</p>
+                <p>3. トークンをサーバー内で入力して、認証する。</p>
+                <p>4. 登録完了</p>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="login-section">
+                <h2>マイページ登録</h2>
+                <div id="search-form">
+                    <label for="username">Minecraftのユーザー名で検索:</label>
+                    <input type="text" id="username" placeholder="Minecraftのユーザー名を入力">
+                    <button class="search-button" onclick="searchUser()">検索</button>
+                </div>
+                <div id="user-info" style="display: none;">
+                    <h3>ユーザー情報</h3>
+                    <p id="user-data"></p>
+                    <label for="password">パスワードを設定:</label>
+                    <input type="password" id="password" placeholder="パスワードを入力">
+                    <label for="web-username">Web上でのユーザー名:</label>
+                    <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
+                    <label for="mailadress">メールアドレスを入力：</label>
+                    <input type="text" id="mailadress" placeholder="メールアドレスを入力">
+                    <button class="info-button" onclick="addInfo()">情報を追加</button>
+                    <button class="minecraft-button" onclick="minecraftAuth()">マインクラフト内でトークンの認証ができたら<br>こちらをクリック</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div id="token-recovery-form">
+                <h3>以前発行したトークンを忘れた場合</h3>
                 <label for="recovery-username">ユーザー名でトークンを再発行:</label>
                 <input type="text" id="recovery-username" placeholder="ユーザー名を入力">
                 <button class="recovery-button" onclick="recoverToken()">再発行</button>
@@ -39,6 +75,7 @@
             </div>
         </div>
     </div>
+    <button class="help-button">ヘルプ</button>
     <script src="/script.js"></script>
 </body>
 </html>
