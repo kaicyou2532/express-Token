@@ -48,10 +48,6 @@ additionalDBConnection.connect((err) => {
     console.log('Connected to additional MariaDB as id ' + additionalDBConnection.threadId);
 });
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
 
 app.get('/api/users/:username', (req, res) => {
     const { username } = req.params;
@@ -105,11 +101,21 @@ app.get('/api/users/:username/recover-token', (req, res) => {
     });
 });
 
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
 
+//各ページへのルート
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
 
 app.get('/explain', (req, res) => {
     res.render('explain'); // ここで 'new-page.ejs' を表示します
+});
+
+app.get('/service', (req, res) => {
+    res.render('service'); 
 });
