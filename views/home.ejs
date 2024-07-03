@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptimusInteractive</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <header class="custom-header">
+        <div class="header-logo">
+            <a href="#">OptimusInteractive
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="/home" class="active">ホーム</a>
+            <a href="/service">サービス一覧</a>
+            <a href="/explain">Minecraft経済システム</a>
+            <a href="/" >ユーザー登録</a>
+            <a href="https://mypage.optimusservers.net/login">マイページログイン</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#">メニュー</a>
+        </div>
+    </header>
+    <main>
+        <section class="service-category">
+            <h2>重要なお知らせ</h2>
+        </section>    
+        <section class="important-notice">
+            <ul>
+                <li>2024年7月6日19:00~経済システム説明会をYoutubeLIVEで行います。</li>
+            </ul>
+        </section>
+        <section class="service-category">
+            <h2>トピックス</h2>
+        </section>    
+        <section class="topics">
+            <div class="topic">
+                <div class="topic-content">
+                    <h2>OptimusInteractiveのホームページ公開
+                    </h2>
+                    <p>OptimusInteractiveのホームページ公開しました</p>
+                    <a href="#">詳細を見る</a>
+                </div>
+            </div>
+            <div class="topic">
+                <div class="topic-content">
+                    <h2>Minecraftサーバーに経済システムを導入します</h2>
+                    <p> </p>
+                    <a href="#">詳細を見る</a>
+                </div>
+            </div>
+        
+        </section>
+        <section class="service-category">
+            <h2>新着・更新</h2>
+            <div class="service-item">
+                <h3>経済システム導入</h3>
+                <p> 2024年7月6日よりMinecraftサーバーに経済システムを導入します。</p>
+                <a href="#">→</a>
+            </div>
+            <div class="service-item">
+                <h3>OptimusMypageのサービス開始</h3>
+                <p> OptimusInteractiveの提供する各サービスをログイン状態で使用できるようになります  
+                </p>
+                <a href="#">→</a>
+            </div>
+            <div class="service-item">
+                <h3></h3>
+                <p>   </p>
+                <a href="#">→</a>
+            </div>
+            <div class="service-item">
+                <h3></h3>
+                <p> </p>
+                <a href="#">→</a>
+            </div>
+        </section>
+ 
+
+   
+        <section class="service-category">
+            <h2>主要メンバー</h2>
+        </section> 
+
+        <section class="members">
+            <div class="member-list">
+                <div class="member" onclick="showMemberDetails('member1')">
+                    <img src="photos/member/kaicyou2532.jpg" alt="かいちょう">
+                    <h3>かいちょう</h3>
+                    <p>OptimusInteractive責任者<br>インフラの設計・構築</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member2')">
+                    <img src="photos/member/YY.jpg" alt="Yubrdi">
+                    <h3>YY</h3>
+                    <p>マイクラサーバー運営責任者<br>WEBサイト運営</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member3')">
+                    <img src="photos/member/sora.png" alt="Sora_339">
+                    <h3>Sora_339</h3>
+                    <p>WEBアプリ構築<br></p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member4')">
+                    <img src="photos/member/.jpg" alt="なばば">
+                    <h3>なばば</h3>
+                    <p>WEBアプリ構築</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member3')">
+                    <img src="photos/member/.jpg" alt="">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member4')">
+                    <img src="photos/member/.jpg" alt="">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member3')">
+                    <img src="photos/member/.jpg" alt="">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member4')">
+                    <img src="photos/member/.jpg" alt="">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+        
+        <div id="member-details-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeMemberDetails()">&times;</span>
+                <div id="member1" class="member-detail">
+                    <h2>かいちょう</h2>
+                    <p>OptimusInteractive責任者</p>
+                    <img src="photos/member/kaicyou2532.jpg" alt="">
+                    <p>・専門<br>   サーバーインフラの構築・運用/バックエンドシステム開発
+                    <br>・参加プロジェクト<br>   Minecraft経済システム（設計）/WEBアプリ(認証系)
+                        <br>
+                    </p>
+                </div>
+                <div id="member2" class="member-detail">
+                    <h2>YY</h2>
+                    <p>マイクラサーバー運営責任者・WEBサイト運営</p>
+                    <img src="path/to/image3.jpg" alt="Yubrdi">
+                    <p>詳細な情報がここに表示されます。</p>
+                </div>
+                <div id="member3" class="member-detail">
+                    <h2>Sora_339</h2>
+                    <p>WEBアプリ構築</p>
+                    <img src="path/to/image2.jpg" alt="Sora_339">
+                    <p>詳細な情報がここに表示されます。</p>
+                </div>
+                <div id="member4" class="member-detail">
+                    <h2>なばば</h2>
+                    <p>WEBアプリ作成</p>
+                    <img src="path/to/image4.jpg" alt="なばば">
+                    <p>詳細な情報がここに表示されます。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <section class="service-category">
+            <h2>Minecraft運営メンバー</h2>
+        </section> 
+
+        <section class="members">
+            <div class="member-list">
+                <div class="member" onclick="showMemberDetails('member1')">
+                    <img src="photos/member/kaicyou2532.jpg" alt="かいちょう">
+                    <h3>かいちょう</h3>
+                    <p>OptimusInteractive責任者<br>インフラの設計・構築</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member2')">
+                    <img src="photos/member/YY.jpg" alt="Yubrdi">
+                    <h3>YY</h3>
+                    <p>マイクラサーバー運営責任者<br>WEBサイト運営</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member3')">
+                    <img src="photos/member/.jpg" alt="Sora_339">
+                    <h3>Sora_339</h3>
+                    <p>WEBアプリ構築</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member4')">
+                    <img src="photos/member/.jpg" alt="なばば">
+                    <h3>なばば</h3>
+                    <p>WEBアプリ作成</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member3')">
+                    <img src="photos/member/.jpg" alt="Sora_339">
+                    <h3>Sora_339</h3>
+                    <p>WEBアプリ構築</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member4')">
+                    <img src="photos/member/.jpg" alt="なばば">
+                    <h3>なばば</h3>
+                    <p>WEBアプリ作成</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member3')">
+                    <img src="photos/member/.jpg" alt="Sora_339">
+                    <h3>Sora_339</h3>
+                    <p>WEBアプリ構築</p>
+                </div>
+                <div class="member" onclick="showMemberDetails('member4')">
+                    <img src="photos/member/.jpg" alt="なばば">
+                    <h3>なばば</h3>
+                    <p>WEBアプリ作成</p>
+                </div>
+            </div>
+        </section>
+        
+        <div id="member-details-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeMemberDetails()">&times;</span>
+                <div id="member1" class="member-detail">
+                    <h2>かいちょう</h2>
+                    <p>OptimusInteractive責任者</p>
+                    <img src="photos/member/kaicyou2532.jpg" alt="">
+                    <p>・専門<br>   サーバーインフラの構築・運用/バックエンドシステム開発
+                    <br>・参加プロジェクト<br>   Minecraft経済システム（設計）/WEBアプリ(認証系)
+                    <br>・所属<br>   
+                        <br>
+                    </p>
+                </div>
+                <div id="member2" class="member-detail">
+                    <h2>YY</h2>
+                    <p>マイクラサーバー運営責任者・WEBサイト運営</p>
+                    <img src="path/to/image3.jpg" alt="Yubrdi">
+                    <p>詳細な情報がここに表示されます。</p>
+                </div>
+                <div id="member3" class="member-detail">
+                    <h2>Sora_339</h2>
+                    <p>WEBアプリ構築</p>
+                    <img src="path/to/image2.jpg" alt="Sora_339">
+                    <p>詳細な情報がここに表示されます。</p>
+                </div>
+                <div id="member4" class="member-detail">
+                    <h2>なばば</h2>
+                    <p>WEBアプリ作成</p>
+                    <img src="path/to/image4.jpg" alt="なばば">
+                    <p>詳細な情報がここに表示されます。</p>
+                </div>
+            </div>
+        </div> -->
+        
+        <script>
+            function showMemberDetails(memberId) {
+                var modal = document.getElementById('member-details-modal');
+                var memberDetails = document.querySelectorAll('.member-detail');
+                memberDetails.forEach(function(detail) {
+                    detail.style.display = 'none';
+                });
+                document.getElementById(memberId).style.display = 'block';
+                modal.style.display = 'block';
+            }
+        
+            function closeMemberDetails() {
+                var modal = document.getElementById('member-details-modal');
+                modal.style.display = 'none';
+            }
+        </script>
+
+    </main>
+</body>
+</html>

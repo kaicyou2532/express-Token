@@ -13,11 +13,11 @@
             </a>
         </div>
         <nav class="header-nav">
-            <a href="#">ホーム</a>
+            <a href="/home" >ホーム</a>
             <a href="/service">サービス一覧</a>
             <a href="/explain">Minecraft経済システム</a>
-            <a href="#" class="active">ユーザー登録</a>
-            <a href="#">マイページログイン</a>
+            <a href="/"class="active" >ユーザー登録</a>
+            <a href="https://mypage.optimusservers.net/login">マイページログイン</a>
         </nav>
         <div class="header-actions">
             <a href="#">メニュー</a>
@@ -32,11 +32,13 @@
 
         <div class="content-container">
             <div id="token-recovery-form">
-                <h3>登録方法</h3>
-                <p>1. MCID（マインクラフトのユーザー名）を検索</p>
-                <p>2. 追加情報を入力 (WEB上での名前や、パスワードなどの設定)し、<br>トークンを発行する。</p>
-                <p>3. トークンをサーバー内で入力して、認証する。</p>
-                <p>4. 登録完了</p>
+                <h3>登録方法①(マイクラサーバーで遊んだことのある方）</h3>
+                <p>1. MCID（マインクラフトのユーザー名）でユーザーを検索</p>
+                <p>2. 追加情報（WEB上での名前やパスワードの設定）を登録し「情報を追加」ボタンをクリックし登録完了</p>
+                <p>3. ログインサイトよりログイン</p>
+                <!-- <p>2. 追加情報を入力 (WEB上での名前や、パスワードなどの設定)し、<br>トークンを発行する。</p>
+                <p>3. トークンをマイクラサーバー内で入力して、認証する。</p>
+                <p>4. 登録完了</p> -->
             </div>
         </div>
         <div class="content-container">
@@ -54,11 +56,31 @@
                     <input type="password" id="password" placeholder="パスワードを入力">
                     <label for="web-username">Web上でのユーザー名:</label>
                     <input type="text" id="web-username" placeholder="Web上でのユーザー名を入力">
-                    <label for="mailadress">メールアドレスを入力：</label>
-                    <input type="text" id="mailadress" placeholder="メールアドレスを入力">
+                    <!-- <label for="mailadress">メールアドレスを入力：</label> -->
+                    <!-- <input type="text" id="mailadress" placeholder="メールアドレスを入力"> -->
                     <button class="info-button" onclick="addInfo()">情報を追加</button>
                     <button class="minecraft-button" onclick="minecraftAuth()">マインクラフト内でトークンの認証ができたら<br>こちらをクリック</button>
                 </div>
+            </div>
+        </div>
+        <div class="content-container">
+            <div id="token-recovery-form">
+                <h3>登録方法②(マイクラサーバーで遊んだことのない方）</h3>
+                <p>1. 情報を入力（(WEB上での名前や、パスワードなどの設定、)</p>
+                <p>2. メールアドレスに送られてきた認証コードを確認</p>
+                <p>3. 認証コードをここに入力</p>
+                <p>4. 登録完了</p>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="login-section">
+                <h2>マイページ登録</h2>
+<!-- 登録のシステムを埋める -->
+
+
+
+
+
             </div>
         </div>
         <div class="content-container">
@@ -79,3 +101,4 @@
     <script src="/script.js"></script>
 </body>
 </html>
+
