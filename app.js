@@ -5,14 +5,53 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const app = express();
+const axios = require('axios');
 const port = 3006;
+require('dotenv').config(); //環境変数の読み込み
+
+//microCMSのconfigのルーティング
+const NewsRoutes = require('./routes/newsRoutes');
+const InportantNoticesRoutes = require('./routes/InportantNoticeRoutes')
+const services = require('./routes/CervicesRoutes')
+
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
 const JWT_SECRET = 'your_secret_key';
+
+// //microCMSの接続設定
+// const microCMSApiKey = 'your-api-key'; // MicroCMSのAPIキー
+// const microCMSinportantURL = 'https://your-service-id.microcms.io/api/v1/news'; // 重要なお知らせ
+// const microCMSnewsURL = 'https://your-service-id.microcms.io/api/v1/news'; // ニュース
+
+// ニュース記事を追加するルート
+app.post('/add-news', async (req, res) => {
+  const { title, body, thumbnailUrl, publishedAt } = req.body;
+
+  try {
+    const response = await axios.post(microCMSBaseURL, {
+      title,
+      body,
+      thumbnail: { url: thumbnailUrl },
+      publishedAt
+    }, {
+      headers: {
+        'X-MICROCMS-API-KEY': microCMSApiKey,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    res.status(201).json({
+      message: 'ニュース記事が正常に追加されました',
+      data: response.data
+    });
+  } catch (error) {
+    console.error('Error adding news article:', error);
+    res.status(500).json({ message: 'ニュース記事の追加に失敗しました' });
+  }
+});
 
 // MariaDBの接続設定
 // ユーザー検索
@@ -32,15 +71,6 @@ const additionalDBConnection = mysql.createConnection({
     port: 3306
 });
 
-const webdataDBConnection = mysql.createConnection({
-    host: '192.168.3.31',
-    user: 'AP',
-    password: '0000',
-    database: 'webdata',
-    port: 3306
-});
-
-
 mainDBConnection.connect((err) => {
     if (err) {
         console.error('Error connecting to main MariaDB:', err.stack);
@@ -55,34 +85,6 @@ additionalDBConnection.connect((err) => {
         return;
     }
     console.log('Connected to additional MariaDB as id ' + additionalDBConnection.threadId);
-});
-
-webdataDBConnection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to main MariaDB:', err.stack);
-        return;
-    }
-    console.log('Connected to main MariaDB as id ' + webdataDBConnection.threadId);
-});
-
-app.get('/api/users/:username', (req, res) => {
-    const { username } = req.params;
-
-
-    const maintenancequery = '';
-
-    webdataDBConnection.query(query, [username], (err, results) => {
-        if (err) {
-            console.error('Error fetching user:', err);
-            res.status(500).json({ error: 'エラーコード:[t500][基幹システムエラー。お手数おかけしますが、エラーコードとともに、運営にご報告お願い致します]' });
-        } else if (results.length === 0) {
-            res.status(404).json({ error: 'エラーコード:[t404][オプ鯖での参加ユーザーのリストにありません。ユーザー名を確認して入力し直すか、オプ鯖に参加したことがない方は先に参加してください。]' });
-        } else {
-            res.json(results[0]);
-        }
-    });
-
-
 });
 
 
@@ -170,3 +172,4 @@ app.get('/service', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('home'); 
 });
+
